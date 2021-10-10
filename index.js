@@ -1,4 +1,5 @@
 const express = require("express");
+const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -20,8 +21,8 @@ const register = require("./routes/register");
 const auth = require("./routes/auth");
 const player = require("./routes/player");
 const ban = require("./routes/ban");
+const live = require("./routes/live");
 
-const app = express();
 const apiRouter = express.Router();
 
 app.use(bodyParser.json());
@@ -35,8 +36,10 @@ apiRouter.post("/player", player);
 app.post("/login", login);
 app.post("/register", register);
 
-app.listen(8080, () => {
+const server = app.listen(8080, () => {
     console.log("Listening on :8080...");
 });
+
+server.on("upgrade", live);
 
 

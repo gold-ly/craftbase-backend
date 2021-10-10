@@ -1,0 +1,11 @@
+POST http://localhost:8080/api/ban
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbGxvIiwiaWF0IjoxNjMzODkxMDE4LCJleHAiOjE2MzM5Nzc0MTh9.pLpT_V2NXk9Ei541Yflaovj6DAhG5YAt9wpyDplsh9k
+
+{
+  "uuid": "123456789",
+  "reason": "testing",
+  "duration": "1m"
+}
+
+###

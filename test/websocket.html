@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Test</title>
+</head>
+<body>
+<script>
+    const ws = new WebSocket("ws://localhost:8080/live?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbGxvIiwiaWF0IjoxNjMzODg5NjkyLCJleHAiOjE2MzM5NzYwOTJ9.Iq_HBJGg-yeY2C2tK-4wSaVbfB9qbnsUMmmXkV67WAM");
+
+    ws.onopen = () => {
+        console.log("Connected to the WebSocket");
+        ws.send("Hello world!");
+    };
+
+    ws.onmessage = (event) => {
+        console.log(JSON.parse(event.data));
+    };
+</script>
+</body>
+</html>
