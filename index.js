@@ -18,6 +18,7 @@ module.exports.secretKey = secretKey;
 const login = require("./routes/login");
 const register = require("./routes/register");
 const auth = require("./routes/auth");
+const player = require("./routes/player");
 const ban = require("./routes/ban");
 
 const app = express();
@@ -29,6 +30,7 @@ app.use("/api", apiRouter);
 apiRouter.use(auth);
 
 apiRouter.post("/ban", ban);
+apiRouter.post("/player", player);
 
 app.post("/login", login);
 app.post("/register", register);
